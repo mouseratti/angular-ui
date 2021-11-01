@@ -1,0 +1,18 @@
+<div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div *ngFor="let subord of subordService.getSubords()" class="subord-row">
+    <p>{{subord.Name}} {{subord.Surname}} </p>
+    <div *ngFor="let entry of subordService.getFormEntries(subord)" class="form-entry">
+      <subord-app-control [entry]="entry" [form]="form"></subord-app-control>
+    </div>
+    
+  </div>
+
+  <div class="form-row">
+    <button type="submit" [disabled]="!isValid()">Save</button>
+  </div>
+</form>
+
+  <div *ngIf="payload" class="form-row">{{payload}}</div>
+</div>

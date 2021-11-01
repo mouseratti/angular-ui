@@ -1,0 +1,6 @@
+<div [formGroup]="form">
+<label [attr.for]="entry.key">{{entry.app.Name}}</label>
+  <select [id]="entry.key" [formControlName]="entry.key">
+    <option *ngFor="let opt of ['enabled', 'disabled']" [value]="opt">{{opt}}</option>
+  </select>
+</div>
